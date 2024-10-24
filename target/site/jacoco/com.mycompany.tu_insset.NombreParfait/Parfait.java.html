@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Parfait.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TU_INSSET</a> &gt; <a href="index.source.html" class="el_package">com.mycompany.tu_insset.NombreParfait</a> &gt; <span class="el_source">Parfait.java</span></div><h1>Parfait.java</h1><pre class="source lang-java linenums">
+package com.mycompany.tu_insset.NombreParfait;
+
+/**
+ *
+ * @author insset
+ */
+public class Parfait {
+    
+<span class="nc" id="L10">  public Parfait() {</span>
+
+<span class="nc" id="L12">  }</span>
+
+  
+  public boolean estDivisiblePar(long n, long val) {
+<span class="nc bnc" id="L16" title="All 2 branches missed.">    return val % n == 0;</span>
+  }
+
+  
+  /**
+   * Renvoie les diviseurs de l'entier.
+   */
+  public long[] diviseurs(long val) {
+    // Majorant pour le nombre de diviseurs
+<span class="nc" id="L25">    int majorant = 1000;</span>
+<span class="nc" id="L26">    long[] temp = new long[majorant];</span>
+    // Ajouter 1 qui est nécessairement un diviseur
+<span class="nc" id="L28">    temp[0] = 1;</span>
+    // Indice de temp où ajouter le prochain diviseur
+<span class="nc" id="L30">    int position = 1;</span>
+    // Ajouter le nombre lui-même (sauf s'il est égal à 1 qui vient déjà d'être ajouté)
+<span class="nc bnc" id="L32" title="All 2 branches missed.">    if (val != 1) {</span>
+<span class="nc" id="L33">      temp[1] = val;</span>
+<span class="nc" id="L34">      position++;</span>
+    }
+    // Déclarer i en dehors de la boucle pour pouvoir 
+    // l'utiliser après la fin de la boucle. 
+<span class="nc" id="L38">    long i = 0;</span>
+    // Essayer tous les nombres comme diviseurs, 
+    // jusqu'à racine carrée de val, non compris.
+<span class="nc bnc" id="L41" title="All 2 branches missed.">    for (i = 2; i * i &lt; val; i++) {</span>
+      // On verra que this représente l'entier à qui on envoie le message.
+      // if (estDivisiblePar(i) convient aussi.
+<span class="nc bnc" id="L44" title="All 2 branches missed.">      if (this.estDivisiblePar(i,val)) {</span>
+        // Si i divise val, val / i le divise aussi.
+<span class="nc" id="L46">        temp[position] = i;</span>
+<span class="nc" id="L47">        temp[position + 1] = val / i;</span>
+<span class="nc" id="L48">        position = position + 2;</span>
+      }
+    }
+    // Si val est un carré, à la sortie de la boucle,
+    // i est égal à la racine carrée de val.
+    // Dans ce cas, il faut ajouter i comme diviseur.
+<span class="nc bnc" id="L54" title="All 2 branches missed.">    if (i * i == val) {</span>
+<span class="nc" id="L55">      temp[position] = i;</span>
+<span class="nc" id="L56">      position++;</span>
+    }
+    // On a trouvé position diviseurs pour le nombre
+<span class="nc" id="L59">    long[] diviseurs = new long[position];</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">    for (int j = 0; j &lt; position; j++) {</span>
+<span class="nc" id="L61">      diviseurs[j] = temp[j];</span>
+    }
+<span class="nc" id="L63">    return diviseurs;</span>
+  }
+  
+
+  
+  public boolean estParfait(long val) {
+<span class="nc" id="L69">    long[] diviseurs = diviseurs(val);</span>
+<span class="nc" id="L70">    long somme = 0;</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">    for (int i = 0; i &lt; diviseurs.length; i++) {</span>
+<span class="nc" id="L72">      somme = somme + diviseurs[i];</span>
+    }
+<span class="nc bnc" id="L74" title="All 2 branches missed.">    return somme - val == val;</span>
+  }
+
+
+    public String formaterResult(boolean isParfait, long nb) {
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (isParfait) {</span>
+<span class="nc" id="L80">            return &quot;le nombre &quot; + nb + &quot; est parfait&quot;;</span>
+        } else {
+<span class="nc" id="L82">            return &quot;le nombre &quot; + nb + &quot; n'est pas parfait&quot;;</span>
+        }
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
