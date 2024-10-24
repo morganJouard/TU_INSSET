@@ -2,5 +2,5 @@ projectKey=com.mycompany:TU_INSSET
 serverUrl=http://localhost:9010/sonar
 serverVersion=10.7.0.96327
 dashboardUrl=http://localhost:9010/sonar/dashboard?id=com.mycompany%3ATU_INSSET
-ceTaskId=1f06425d-bbfd-4395-9555-899ef2ea2c32
-ceTaskUrl=http://localhost:9010/sonar/api/ce/task?id=1f06425d-bbfd-4395-9555-899ef2ea2c32
+ceTaskId=a50ffb9d-9eda-40dc-af83-1684cdead43a
+ceTaskUrl=http://localhost:9010/sonar/api/ce/task?id=a50ffb9d-9eda-40dc-af83-1684cdead43a
